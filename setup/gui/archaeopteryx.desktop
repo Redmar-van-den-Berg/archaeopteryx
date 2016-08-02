@@ -1,0 +1,7 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=Archaeopteryx
+Exec=archaeopteryx
+Icon=${SNAP}/meta/gui/archaeopteryx.png
+Categories=Application;
