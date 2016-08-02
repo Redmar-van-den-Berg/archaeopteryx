@@ -1,0 +1,25 @@
+name: archaeopteryx # the name of the snap
+version: 2 # the version of the snap
+summary: Visualization, Analysis, and Editing of Phylogenetic Trees
+description: Archaeopteryx is a software tool for the visualization, analysis, and editing of potentially large and highly annotated phylogenetic trees.
+confinement: strict # use "strict" to enforce system access only via declared interfaces
+
+apps:
+    archaeopteryx:
+        command: wrapper
+        plugs: [x11, network, network-bind, home]
+
+parts:
+    archaeopteryx:
+        plugin: copy
+        source: https://github.com/cmzmasek/forester.git
+        files:
+            forester/java/forester.jar: bin/forester.jar
+        stage-packages:
+            - openjdk-8-jre
+
+    wrapper:
+        plugin: copy
+        files:
+            wrapper: bin/wrapper
+            _aptx_configuration_file: _aptx_configuration_file
